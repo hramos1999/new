@@ -1,12 +1,18 @@
 const DB = require('./db')
 
 class Regsumar {
-    static GetDocentes = async () => {
+    static GetDocentes =  async () => {
 		const sql = `select * from docente`
 
 		const results = await DB.Select(sql)
 		return results
-	}	
+	}
+	static GetSumarios =  async () => {
+		const sql = `select * from sumario`
+
+		const results = await DB.Select(sql)
+		return results
+	}
 
 }
 
