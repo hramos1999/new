@@ -18,7 +18,7 @@ app.use('/', iniRegSum)
 // app.use('/regsumar', regsumarRoutes)
 app.use('/docentes', docenteRoutes)
 app.use('/sumario', sumarioRoutes)
-//app.use('/disciplina', disciplinaRoutes)
+app.use('/disciplina', disciplinaRoutes)
 app.use('/curso', cursoRoutes)
 //app.use('/auth', authRoutes)
 
