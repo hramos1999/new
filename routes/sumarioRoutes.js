@@ -14,7 +14,6 @@ const pool = new Pool({
 	insecureAuth: true,
 })
 
-
 // view all sum
 router.get('/', express.json(), async (req, res) => {
 	try{
