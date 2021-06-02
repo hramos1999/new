@@ -44,7 +44,7 @@ router.get('/:id', express.json(), async (req, res) => {
 });
 
 // edit a sumario
-router.put('/:id', express.json(), async (req, res) => {
+router.put('/edit/:id', express.json(), async (req, res) => {
 
 	const { id } = req.params;
 	const { conteudo, biblio,presenca } = req.body;
@@ -56,7 +56,7 @@ router.put('/:id', express.json(), async (req, res) => {
 });
 
 // delete a sumario
-router.delete('/:id', express.json(), async (req, res) => {
+router.delete('/delete/:id', express.json(), async (req, res) => {
 	const { id } = req.params;
 	const deletedSumario = await Regsumar.DeleteSumario(id)
 
