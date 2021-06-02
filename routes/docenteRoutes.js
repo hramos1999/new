@@ -18,6 +18,7 @@ router.get("/", express.json(), async (req, res) => {
 			nomeCompleto: docente.nomeCompleto,
 			grau: docente.grau,
 			departmento: docente.departmento,
+			email: docente.email,
 		}))
 	)
 }) 
