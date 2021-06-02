@@ -1,20 +1,31 @@
 {
-  "name": "regsumar",
+  "name": "registrosumario",
   "version": "1.0.0",
-  "description": "sitema registo sumarios",
+  "description": "Registro Sumario",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
     "start": "nodemon index.js"
   },
-  "author": "Eng SW 2021 Paulo Silva",
+  "author": "Rafael Pires",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "eslint": "^7.27.0",
     "express": "^4.17.1",
     "mysql": "^2.2.5",
+    "pg": "^8.6.0",
     "sequelize": "^6.6.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isecmar-paulo/regsumar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/isecmar-paulo/regsumar/issues"
+  },
+  "homepage": "https://github.com/isecmar-paulo/regsumar#readme"
 }
