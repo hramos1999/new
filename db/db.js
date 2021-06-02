@@ -9,6 +9,10 @@ const connectionPool = mysql.createPool({
 	database: process.env.DB_CENTRAL_DATABASE,
 	insecureAuth: true,
 })
+connectionPool.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+	if (error) throw error;
+	console.log('The solution is: ', results[0].solution);
+});
 
 class DB {
 	static GetConnection = () => {
