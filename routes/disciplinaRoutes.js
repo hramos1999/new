@@ -12,10 +12,10 @@ router.get("/", express.json(), async (req, res) => {
 	if (!disciplinas) return res.sendStatus(500) // internal error
 	return res.json(
 		disciplinas.map((disciplina) => ({
-			id: disciplina.idDocente,
+			id: disciplina.id,
+			codigo: disciplina.codigo,
 			nome: disciplina.nome,
-			nivel: disciplina.nivel,
-			ano: disciplina.ano,
+			sinopse: disciplina.sinopse,
 		}))
 	)
 }) 
