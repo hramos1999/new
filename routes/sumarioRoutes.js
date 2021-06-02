@@ -5,7 +5,7 @@ router.use(express.json());
 const Regsumar = require('../db/regsumar')
 
 
-// view all sumarios
+// ver todos os sumarios
 router.get('/', express.json(), async (req, res) => {
 	const sumarios = await Regsumar.GetSumarios()
 
@@ -21,7 +21,7 @@ router.get('/', express.json(), async (req, res) => {
 	)
 });
 
-// create a sumario
+// criar um sumario
 router.post('/create', express.json(), async (req, res) => {
 
 	const { conteudo, biblio, presenca } = req.body;
@@ -32,7 +32,7 @@ router.post('/create', express.json(), async (req, res) => {
 	return res.json("Cadastro feito com sucesso.");
 });
 
-// view a sumario
+// ver um sumario em expecifico
 router.get('/:id', express.json(), async (req, res) => {
 
 	const { id } = req.params;
@@ -43,7 +43,7 @@ router.get('/:id', express.json(), async (req, res) => {
 
 });
 
-// edit a sumario
+// editar um sumario em expecifico
 router.put('/edit/:id', express.json(), async (req, res) => {
 
 	const { id } = req.params;
@@ -55,7 +55,7 @@ router.put('/edit/:id', express.json(), async (req, res) => {
 	return res.json("Elemento alterado com sucesso.");
 });
 
-// delete a sumario
+// deletar um sumario em expecifico
 router.delete('/delete/:id', express.json(), async (req, res) => {
 	const { id } = req.params;
 	const deletedSumario = await Regsumar.DeleteSumario(id)

@@ -6,7 +6,7 @@ const Regsumar = require('../db/regsumar');
 const siglaDetermination = require('../src/sigla');
 
 
-// view all disciplina
+// ver todas as disciplinas
 router.get('/', express.json(), async (req, res) => {
 	const disciplinas = await Regsumar.GetDisciplinas()
 
@@ -22,7 +22,7 @@ router.get('/', express.json(), async (req, res) => {
 });
 
 
-// view a Disciplina
+// ver uma Disciplina em expecifico
 router.get('/:id', express.json(), async (req, res) => {
 
 	const { id } = req.params;

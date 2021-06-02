@@ -5,7 +5,7 @@ const Regsumar = require('../db/regsumar')
 // const siglaDetermination = require('../src/sigla');
 router.use(express.json());
 
-// view all curso
+// ver todos os cursos
 router.get('/', express.json(), async (req, res) => {
 	
 	const cursos = await Regsumar.GetCursos()
@@ -21,7 +21,7 @@ router.get('/', express.json(), async (req, res) => {
 	)
 });
 
-// view a curso
+// ver um  curso em expecifico
 router.get('/:id', express.json(), async (req, res) => {
 	const { id } = req.params;
 	const curso = await Regsumar.GetCursos(id)

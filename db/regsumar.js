@@ -5,7 +5,7 @@ class Regsumar {
     static GetDocentes =  async (id=null) => {
 		let sql;
 		if(id !==null){
-			sql = `select * from docente WHERE id=${id}`
+			sql = `select * from docente WHERE idDocente=${id}`
 		}	
 		else{
 			sql = `select * from docente`
@@ -67,7 +67,7 @@ class Regsumar {
 	static GetDisciplinas =  async (id=null) => {
 		let sql;
 		if(id !==null){
-			sql = `select * from disciplina WHERE idsumario=${id}`
+			sql = `select * from disciplina WHERE id=${id}`
 		}	
 		else{
 			sql = `select * from disciplina`
