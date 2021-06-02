@@ -21,19 +21,19 @@ class Regsumar {
 		return await DB.Select(sql)
 	}
 
-	static PostSumarios = async (conteudo, biblio, presenca, aula) => {
-		const sql = `INSERT INTO table_name (conteudo, biblio, presenca, aula) VALUES ("${conteudo}", "${biblio}", "${presenca}", "${aula}");`
+	static PostSumarios = async (conteudo, biblio, presenca) => {
+		const sql = `INSERT INTO sumario (conteudo, biblio, presenca) VALUES ("${conteudo}", "${biblio}", ${presenca});`
 		return await DB.Select(sql)
 	}
 
-	static PutSumarios = async (id, conteudo, biblio, presenca, aula) => {
-		const sql = `UPDATE sumario SET conteudo="${conteudo}", biblio="${biblio}", presenca="${presenca}", aula="${aula}"
-                    WHERE id="${id}";`
+	static PutSumarios = async (id, conteudo, biblio, presenca) => {
+		const sql = `UPDATE sumario SET conteudo="${conteudo}", biblio="${biblio}", presenca=${presenca}
+                    WHERE idsumario="${id}";`
 		return await DB.Select(sql)
 	}
 
 	static DeleteSumarios = async (id) => {
-		const sql = `DELETE FROM sumario WHERE id="${id}";`
+		const sql = `DELETE FROM sumario WHERE idsumario="${id}";`
 		return await DB.Select(sql)
 	}
 

@@ -23,8 +23,8 @@ router.get("/", express.json(), async (req, res) => {
 
 
 router.post('/novoSum', express.json(), async (req, res) => {
-    const {conteudo, biblio, presenca, aula} = req.body;
-    const novoSum = await Regsumar.PostSumarios(conteudo, biblio, presenca, aula);
+    const {conteudo, biblio, presenca} = req.body;
+    const novoSum = await Regsumar.PostSumarios(conteudo, biblio, presenca);
 
     if(!novoSum) return res.sendStatus(500);
 
@@ -42,8 +42,8 @@ router.delete('/removSum/:id', express.json(), async (req, res) => {
 
 router.put('/atuSum/:id', express.json(), async (req, res) => {
     const {id} = req.params;
-    const {conteudo, biblio, presenca, aula} = req.body;
-    const removSum = await Regsumar.PutSumarios(id, conteudo, biblio, presenca, aula);
+    const {conteudo, biblio, presenca} = req.body;
+    const removSum = await Regsumar.PutSumarios(id, conteudo, biblio, presenca);
 
     if(!removSum) return res.sendStatus(500);
 
