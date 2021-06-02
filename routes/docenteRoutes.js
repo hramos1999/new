@@ -22,6 +22,16 @@ router.get("/", express.json(), async (req, res) => {
 	)
 }) 
 
+//  pegar um docente em expecifico
+router.get("/:id", express.json(), async (req, res) => {
+	
+	const { id } = req.params
+
+	const docente = await Regsumar.GetDocentes(id)
+
+	if (!docente) return res.sendStatus(500) // internal error
+	return res.json(docente)
+});
 
 module.exports = router
 
