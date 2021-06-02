@@ -16,8 +16,10 @@ router.get("/", express.json(), async (req, res) => {
 			sigla: docente.sigla,
 			nome: docente.nome,
 			nomeCompleto: docente.nomeCompleto,
+			ocupacao: docente.ocupacao,
 			grau: docente.grau,
-			departmento: docente.departmento,
+			idUser: docente.idUser,
+			area: docente.area,
 		}))
 	)
 }) 
