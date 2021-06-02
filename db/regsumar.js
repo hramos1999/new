@@ -5,12 +5,11 @@ class Regsumar {
     static GetDocentes =  async (id=null) => {
 		let sql;
 		if(id !==null){
-			sql = `select * from Docente WHERE id=${id}`
+			sql = `select * from docente WHERE id=${id}`
 		}	
 		else{
-			sql = `select * from Docente`
+			sql = `select * from docente`
 		}
-			
 		const results = await DB.Select(sql)
 		return results
 	}
@@ -19,33 +18,12 @@ class Regsumar {
 	static GetCursos =  async (id=null) => {
 		let sql;
 		if(id !==null){
-			sql = `select * from Curso WHERE id=${id}`
+			sql = `select * from curso WHERE id=${id}`
 		}	
 		else{
-			sql = `select * from Curso`
+			sql = `select * from curso`
 		}
 		const results = await DB.Select(sql)
-		return results
-	}
-	
-	static DeleteCurso =  async (id) => {
-		const sql = `DELETE FROM Curso WHERE id=${id}`
-
-		const results = await DB.Delete(sql)
-		return results
-	}
-
-	static PutCurso =  async (id,nome, sigla, descript, coordenador) => {
-		const sql = `UPDATE Curso SET nome="${nome}", sigla="${sigla}", descript="${descript}", coordenador="${coordenador}" WHERE id=${id}`
-
-		const results = await DB.Update(sql)
-		return results
-	}
-
-	static PostCursos =  async ( nome, sigla, descript, coordenador) => {
-		const sql = `INSERT INTO Curso (nome, sigla, descript, coordenador ) VALUES ("${nome}", "${sigla}", "${descript}", "${coordenador}");`
-
-		const results = await DB.Insert(sql)
 		return results
 	}
 
@@ -53,10 +31,10 @@ class Regsumar {
 	static GetSumarios =  async (id=null) => {
 		let sql;
 		if(id !==null){
-			sql = `select * from Sumario WHERE id=${id}`
+			sql = `select * from sumario WHERE idsumario=${id}`
 		}	
 		else{
-			sql = `select * from Sumario`
+			sql = `select * from sumario`
 		}
 			
 		const results = await DB.Select(sql)
@@ -64,23 +42,22 @@ class Regsumar {
 	}
 
 	static DeleteSumario =  async (id) => {
-		const sql = `DELETE FROM Sumario WHERE id=${id}`
+		const sql = `DELETE FROM sumario WHERE idsumario=${id}`
 
 		const results = await DB.Delete(sql)
 		return results
 	}
 
-	static PutSumario =  async (id,nrAula, validate, dataRegistro, titulo, subTopicos) => {
-		const sql = `UPDATE Sumario SET nrAula=${nrAula}, validate=${validate}\
-		, dataRegistro=${dataRegistro}, titulo="${titulo}", subTopicos="${subTopicos}" WHERE id=${id}`
+	static PutSumario =  async (id,conteudo, biblio,presenca) => {
+		const sql = `UPDATE sumario SET conteudo="${conteudo}", biblio="${biblio}",presenca=${presenca}\
+		 WHERE idsumario=${id};`
 
 		const results = await DB.Update(sql)
 		return results
 	}
 
-	static PostSumario =  async (id_disciplina,nrAula, validate, dataRegistro, titulo, subTopicos) => {
-		const sql = `INSERT INTO Sumario (nrAula, validate, dataRegistro, titulo, subTopicos) VALUES \
-		(${nrAula}, ${validate}, ${dataRegistro}, "${titulo}", "${subTopicos}");`
+	static PostSumario =  async (conteudo, biblio,presenca) => {
+		const sql = `INSERT INTO sumario (conteudo, biblio, presenca) VALUES ("${conteudo}", "${biblio}", ${presenca});`
 
 		const results = await DB.Insert(sql)
 		return results
@@ -90,34 +67,13 @@ class Regsumar {
 	static GetDisciplinas =  async (id=null) => {
 		let sql;
 		if(id !==null){
-			sql = `select * from Disciplina WHERE id=${id}`
+			sql = `select * from disciplina WHERE idsumario=${id}`
 		}	
 		else{
-			sql = `select * from Disciplina`
+			sql = `select * from disciplina`
 		}
 			
 		const results = await DB.Select(sql)
-		return results
-	}
-
-	static DeleteDisciplina =  async (id) => {
-		const sql = `DELETE FROM Disciplina WHERE id=${id}`
-
-		const results = await DB.Delete(sql)
-		return results
-	}
-
-	static PostDisciplina =  async (nome, sigla, descript) => {
-		const sql = `INSERT INTO Disciplina (nome, sigla, descript) VALUES ("${nome}"," ${sigla}", "${descript}")`
-
-		const results = await DB.Insert(sql)
-		return results
-	}
-
-	static PutDisciplina =  async (id,nome, sigla, descript) => {
-		const sql = `UPDATE Disciplina SET nome="${nome}", sigla="${sigla}", descript="${descript}" WHERE id=${id}`
-
-		const results = await DB.Update(sql)
 		return results
 	}
 

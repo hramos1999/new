@@ -12,13 +12,11 @@ router.get('/', express.json(), async (req, res) => {
 	if (!sumarios) return res.sendStatus(500) // internal error
 	return res.json(
 		sumarios.map((sumario) => ({
-			id:sumario.id,
-			id_disciplina:sumario.id_disciplina,
-			nrAula:sumario.nrAula,
-			validade:sumario.validade, 
-			dataRegistro:sumario.dataRegistro, 
-			titulo:sumario.titulo, 
-			subTopicos:sumario.subTopicos,
+			idsumario:sumario.idsumario,
+			conteudo:sumario.conteudo,
+			biblio:sumario.biblio,
+			presenca:sumario.presenca, 
+			aula:sumario.aula,
 		}))
 	)
 });
@@ -26,8 +24,8 @@ router.get('/', express.json(), async (req, res) => {
 // create a sumario
 router.post('/create', express.json(), async (req, res) => {
 
-	const { id_disciplina,nrAula,validate, dataRegistro, titulo, subTopicos } = req.body;
-	const newSum = await Regsumar.PostSumario(id_disciplina,nrAula,validate, dataRegistro, titulo, subTopicos);
+	const { conteudo, biblio, presenca } = req.body;
+	const newSum = await Regsumar.PostSumario(conteudo, biblio,presenca);
 
 	if(!newSum) return res.sendStatus(500);
 	
@@ -49,8 +47,8 @@ router.get('/:id', express.json(), async (req, res) => {
 router.put('/:id', express.json(), async (req, res) => {
 
 	const { id } = req.params;
-	const { nrAula,validate, dataRegistro, titulo, subTopicos } = req.body;
-	const putSum = await Regsumar.PutSumario(id,nrAula,validate, dataRegistro, titulo, subTopicos);
+	const { conteudo, biblio,presenca } = req.body;
+	const putSum = await Regsumar.PutSumario(id,conteudo, biblio,presenca);
 
 	if(!putSum) return res.sendStatus(500);
 	
