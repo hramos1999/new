@@ -45,7 +45,7 @@ router.delete("/", express.json(), async (req, res) => {
 	if (!sumarios) return res.sendStatus(500) // internal error
 	return res.json(`Sumario com id = ${req.idsumario} foi eliminado`
 			
-		}))
+	
 	)
 })
 
