@@ -20,6 +20,21 @@ router.get("/", express.json(), async (req, res) => {
 		}))
 	)
 }) 
+//curso/id
+router.get("/:id", express.json(), async (req, res) => {
+	const {id} = req.params;
+	const curso = await Regsumar.GetCurso(id)
 
+	if (!curso) return res.sendStatus(500) // internal error
+	return res.json(
+		curso.map((curso) => ({
+			id: curso.id,
+			sigla: curso.sigla,
+			nome: curso.nome,
+			conferegrau: curso.conferegrau,
+			
+		}))
+	)
+}) 
 
 module.exports = router

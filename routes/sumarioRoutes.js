@@ -8,7 +8,7 @@ router.use(express.json());
 
 router.get("/", express.json(), async (req, res) => {
 
-	const sumarios = await Regsumar.GetSumarios()
+	const sumarios = await Regsumar.GetAllSumarios()
 
 	if (!sumarios) return res.sendStatus(500) // internal error
 	return res.json(
@@ -21,6 +21,20 @@ router.get("/", express.json(), async (req, res) => {
 	)
 }) 
 
+router.get("/:id", express.json(), async (req, res) => {
+	const {id} = req.params;
+	const sumario = await Regsumar.GetOneSumario(id)
+
+	if (!sumario) return res.sendStatus(500) // internal error
+	return res.json(
+		sumario.map((sumario) => ({
+			id: sumario.idsumario,
+			conteudo: sumario.conteudo,
+			biblio: sumario.bilio,
+            presenca: sumario.presenca,
+		}))
+	)
+}) 
 router.post("/create", express.json(), async (req, res) => {
 
     const { conteudo, biblio, presenca } = req.body;
@@ -28,7 +42,7 @@ router.post("/create", express.json(), async (req, res) => {
 	const sumario = await Regsumar.PostSumario(conteudo, biblio, presenca);
 
 	if (!sumario) return res.sendStatus(500) // internal error
-    return res.json("Cadastro com sucesso.");
+    return res.json("Sumario added successfully.");
 	
 }) 
 
@@ -43,11 +57,9 @@ router.put("/update", express.json(), async (req, res) => {
 	
 }) 
 
-router.delete("/remove", express.json(), async (req, res) => {
-
-    const { idsumario} = req.body;
-
-	const sumario = await Regsumar.DeleteSumario(idsumario);
+router.delete("/remove/:id", express.json(), async (req, res) => {
+	const {id} = req.params;
+    const sumario = await Regsumar.DeleteSumario(id);
 
 	if (!sumario) return res.sendStatus(500) // internal error
     return res.json("Sumario removed successfully");
