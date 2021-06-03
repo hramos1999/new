@@ -22,6 +22,14 @@ router.get("/", express.json(), async (req, res) => {
 	)
 }) 
 
+router.post("/novo_docente", express.json(), async (req, res) => {
+
+	const newDocente = req.body
+	const response = await Docente.AddNewDocente(newDocente)
+	if (response === null) return res.sendStatus(500)
+	if (response.error) return res.json(response)
+	
+})
 
 module.exports = router
 

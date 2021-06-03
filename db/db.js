@@ -8,6 +8,7 @@ const connectionPool = mysql.createPool({
 	password: process.env.DB_PASSWORD,
 	database: process.env.DB_CENTRAL_DATABASE,
 	insecureAuth: true,
+
 })
 
 class DB {

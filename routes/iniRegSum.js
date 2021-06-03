@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 router.use(express.json());
-router.get("/", (req, res) => {
+router.post("/",express.json(), (req, res) => {
+    console.log(req.body)
     res.json({ message: "Registo sumarios ok." });
   });
 
