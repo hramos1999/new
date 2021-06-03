@@ -7,7 +7,7 @@ router.use(express.json());
 
 router.get("/", express.json(), async (req, res) => {
 
-	const sumarios = await Regsumar.GetSumarios()
+	const sumarios = await Regsumar.GetSumarios(req)
 
 	if (!sumarios) return res.sendStatus(500) // internal error
 	return res.json(

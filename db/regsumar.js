@@ -19,11 +19,23 @@ class Regsumar {
 		const results = await DB.Select(sql)
 		return results
 	}
-	static GetSumarios = async () => {
-		const sql = `select * from sumario`
+	static GetSumarios = async (req) => {
+		var sql=`select * from sumario`
+		if (req.diciplina=!null && req.data=!null){
+			sql =`select * from sumario join aula on sumario.aula = aula.idaula where aula.disciplina = ${req.diciplina} AND aula.data = ${req.data} `
 
+		}
+		
 		const results = await DB.Select(sql)
 		return results
+
+
+
+
+
+
+
+
 	}
 	static PutSumarios = async (req) => {
 		const sql = `UPDATE sumario SET conteudo = ${req.conteudo}, biblio= ${req.biblio} presenca= ${req.presenca}, aula= ${req.aula} WHERE CustomerID = 1;`
