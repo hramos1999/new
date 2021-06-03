@@ -3,8 +3,12 @@
 -- Host: localhost    Database: resumar
 -- ------------------------------------------------------
 -- Server version	8.0.25
+<<<<<<< HEAD
 CREATE DATABASE regsumar;
 USE regsumar;
+=======
+
+>>>>>>> c4f20cb83e02b682006e8573ff4b3238e796f103
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -20,7 +24,10 @@ USE regsumar;
 -- Table structure for table `aula`
 --
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c4f20cb83e02b682006e8573ff4b3238e796f103
 DROP TABLE IF EXISTS `aula`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -332,7 +339,10 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c4f20cb83e02b682006e8573ff4b3238e796f103
 INSERT INTO `user` VALUES (1,'paulosilva	','psilva@uta.cv','Lala123'),(2,'emanuel','eribeiro','lala123');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -346,4 +356,8 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+<<<<<<< HEAD
 -- Dump completed on 2021-06-02  1:28:29
+=======
+-- Dump completed on 2021-06-02  1:28:29
+>>>>>>> c4f20cb83e02b682006e8573ff4b3238e796f103
