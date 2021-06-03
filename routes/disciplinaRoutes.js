@@ -3,7 +3,7 @@ const router = express.Router()
 router.use(express.json());
 
 const Regsumar = require('../db/regsumar');
-const siglaDetermination = require('../src/sigla');
+// const siglaDetermination = require('../src/sigla');
 
 
 // ver todas as disciplinas

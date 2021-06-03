@@ -24,8 +24,8 @@ router.get('/', express.json(), async (req, res) => {
 // criar um sumario
 router.post('/create', express.json(), async (req, res) => {
 
-	const { conteudo, biblio, presenca } = req.body;
-	const newSum = await Regsumar.PostSumario(conteudo, biblio,presenca);
+	const { conteudo, biblio, presenca, idaula } = req.body;
+	const newSum = await Regsumar.PostSumario(conteudo, biblio,presenca, idaula);
 
 	if(!newSum) return res.sendStatus(500);
 	

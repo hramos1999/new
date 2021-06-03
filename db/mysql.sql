@@ -26,10 +26,10 @@ CREATE TABLE `aula` (
   `idaula` int NOT NULL AUTO_INCREMENT,
   `numero` int NOT NULL,
   `diaSemana` varchar(45) DEFAULT NULL,
-  `hora` datetime DEFAULT NULL,
+  `hora` time DEFAULT NULL,
   `local` varchar(45) DEFAULT NULL,
   `duracao` varchar(45) DEFAULT NULL,
-  `data` datetime DEFAULT NULL,
+  `data` date DEFAULT NULL,
   `disciplina` int DEFAULT NULL,
   PRIMARY KEY (`idaula`),
   KEY `fk_aula_1_idx` (`disciplina`),
@@ -334,6 +334,13 @@ INSERT INTO `user` VALUES (1,'paulosilva	','psilva@uta.cv','Lala123'),(2,'emanue
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+CREATE VIEW `aula_sumario_table` AS
+SELECT   sumario.conteudo, sumario.biblio, sumario.presenca,
+aula.diaSemana, aula.hora, aula.local,aula.duracao, aula.data,
+ disciplina.codigo, disciplina.nome, disciplina.sinopse
+from sumario, aula, disciplina
+where  sumario.aula = aula.idaula AND disciplina.id = aula.idaula;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
