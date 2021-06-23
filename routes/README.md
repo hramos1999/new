@@ -1,5 +1,6 @@
 Aluno: João Baptista Monteiro Sousa
-2ª fase do projeto
+
+2ª fase do projeto Registo Sumario
 
 Implementação Backend
 
@@ -43,4 +44,6 @@ Implementação de routes
             Remover Sumario 
 
             http://localhost:3001/sumario/remove
+
+            -------------------------------
 
