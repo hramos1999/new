@@ -58,8 +58,8 @@ class Regsumar {
 		return results
 	}
 
-	static PostSumario =  async (conteudo, biblio,presenca,idaula) => {
-		const sql = `INSERT INTO sumario (conteudo, biblio, presenca, aula) VALUES ("${conteudo}", "${biblio}", ${presenca}, ${idaula});`		
+	static PostSumario =  async (conteudo, biblio,presenca) => {
+		const sql = `INSERT INTO sumario (conteudo, biblio, presenca) VALUES ("${conteudo}", "${biblio}", ${presenca});`		
 
 		const results = await DB.Insert(sql);
 

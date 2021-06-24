@@ -1,5 +1,8 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
+
+app.use(cors())
 
 const regsumarRoutes = require('./routes/regsumarRoutes')
 const sumarioRoutes = require('./routes/sumarioRoutes')
@@ -23,7 +26,5 @@ app.use('/class', classRoutes)
 app.use('/disciplina', disciplinaRoutes)
 app.use('/curso', cursoRoutes)
 //app.use('/auth', authRoutes)
-
-
 
 module.exports = app
